@@ -1,0 +1,40 @@
+/* GENERAL */
+p {
+    cursor: pointer;
+}
+
+/* HEADER */
+header {
+    background: black;
+    color: white;
+}
+
+.search-input {
+    border-radius: 7px;
+    padding-left: 10px;
+    height: 30px;
+}
+
+/* MAIN */
+main {
+    text-align: center;
+}
+ul {
+    display: inline-block;
+}
+.show{
+    width: 50%;
+}
+h1 {
+    font-size: 25px;
+}
+
+/* FOOTER */
+footer {
+    background-color: black;
+    text-align: center;
+}
+
+.footer {
+    color: white;
+}
