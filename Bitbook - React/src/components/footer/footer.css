@@ -1,0 +1,9 @@
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.footer-sing {
+  color: white !important;
+}

@@ -1,0 +1,9 @@
+.card {
+    width: 30%;
+    margin: 1%
+}
+
+.cardText {
+    color: white;
+    background-color: #4154b3;
+}

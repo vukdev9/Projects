@@ -3,6 +3,9 @@ p {
     cursor: pointer;
 }
 
+h3, h4 {
+    cursor: default;
+}
 /* HEADER */
 header {
     background: black;
