@@ -21,19 +21,6 @@ class LoginPage extends React.Component {
     }
   }
 
-  // onEmailChange = (event) =this.setState({email:event.target.value, error:''})
-  // onPassChange = (event) =this.setState({password:event.target.value, error:''})
-
-
-
-  // onFormSubmitHandler = e => {
-  //     e.preventDefault();
-  // }
-  // onChangeInputHandler = e => {
-  //     this.setState({ [e.target.name]: e.target.value })
-  // }
-
-
   loginHandler = event => {
     event.preventDefault();
 
@@ -57,7 +44,6 @@ class LoginPage extends React.Component {
   goToHomepage = () => this.props.history.push("/dashboard");
 
   sendLoginForm = data => {
-
     sendLoginData(data)
       .then(({ error }) => {
         if (error) {
