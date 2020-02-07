@@ -6,7 +6,7 @@ class PostService {
     
 
     deleteSinglePost  = (id,data,token) => {
-        const url = `http://crud-api.hypetech.xyz/v1/posts/${id}`
+        const url = `https://crud-api.hypetech.xyz/v1/posts/${id}`
         return http.delete(url,data,token)
     } 
 
