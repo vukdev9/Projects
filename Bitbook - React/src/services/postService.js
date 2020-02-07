@@ -11,18 +11,18 @@ class PostService {
     } 
 
     createPost = (data, token) => {
-        const url = "http://crud-api.hypetech.xyz/v1/posts"
+        const url = "https://crud-api.hypetech.xyz/v1/posts"
         return http.post(url, data, token)
     }
 
     updatePost = (id, data, token) => {
-        const url = `http://crud-api.hypetech.xyz/v1/posts/${id}`
+        const url = `https://crud-api.hypetech.xyz/v1/posts/${id}`
         return http.put(url, data, token)
     }
 
 
     fetchSinglePost = (id, token) => {
-        const requestUrl = `http://crud-api.hypetech.xyz/v1/posts/${id}`
+        const requestUrl = `https://crud-api.hypetech.xyz/v1/posts/${id}`
         return http.get(requestUrl)
     }
 

@@ -3,7 +3,7 @@ import { Comment } from '../models/Comment'
 
 class CommentsService {
     getPostComments(postId) {
-        return http.get('http://crud-api.hypetech.xyz/v1/posts/' + postId + '/comments')
+        return http.get('https://crud-api.hypetech.xyz/v1/posts/' + postId + '/comments')
             .then(comments => {
                 return comments.map((comment) => {
                     return new Comment(comment)

@@ -13,7 +13,7 @@ export const getUserId = () => {
 }
 
 export const sendLoginData = (payload) => {
-    const loginEndpoint = "http://crud-api.hypetech.xyz/v1/auth/login"
+    const loginEndpoint = "https://crud-api.hypetech.xyz/v1/auth/login"
     return http.post(loginEndpoint, payload)
         .then(data => {
             console.log(data);

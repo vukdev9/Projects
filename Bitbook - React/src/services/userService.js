@@ -2,7 +2,7 @@ import { http } from './fetchService'
 
 class UserService {
     getSingleAuthor(id) {
-        return http.get('http://crud-api.hypetech.xyz/v1/users/' + id)
+        return http.get('https://crud-api.hypetech.xyz/v1/users/' + id)
             .then(result => {
                 if(result.firstName) {
                     return result.firstName
