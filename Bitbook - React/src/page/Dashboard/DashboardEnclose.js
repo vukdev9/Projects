@@ -4,7 +4,7 @@ const DashboardEnclose = (props) => (
   <>
     <div className='dashBord'>
       <div >
-        <img src={props.src}></img>
+        <img src={props.src} alt={props.alt}></img>
       </div>
       <p>{props.number}</p>
       <p>{props.text}</p>

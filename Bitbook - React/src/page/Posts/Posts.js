@@ -26,7 +26,7 @@ class Posts extends React.Component {
                 <Title title='All posts' />
                 <div className='row'>
                     {this.state.posts.map((post) => {
-                        return <Card userId={post.userId} key={post.id} title={post.title} src={post.imageUrl} description={post.text} id={post.id} />
+                        return <Card userId={post.userId} key={post.id} title={post.title} src={post.validImage} description={post.text} id={post.id} />
                     })}
                 </div>
             </>

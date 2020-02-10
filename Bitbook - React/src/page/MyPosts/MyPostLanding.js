@@ -2,7 +2,7 @@ import React from "react";
 import Title from "../../components/title/Title"
 import './MyPost.css'
 import MyPosts from "./MyPosts";
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const MyPostLanding = () => (

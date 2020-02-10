@@ -3,7 +3,6 @@ import { userRequests } from '../../services/userFetch'
 import { Row } from '../../components/Row/Row'
 import DashboardEnclose from './DashboardEnclose'
 import './DashBoard.css'
-import {Link} from 'react-router-dom'
 
 class Dashboard extends React.Component {
   constructor() {
