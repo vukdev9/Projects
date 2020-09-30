@@ -20,6 +20,8 @@ const MessageContainer = ({ receiverID, user }: any) => {
   const { register, handleSubmit } = useForm();
   const [sent, setSent] = useState<boolean | any>();
   const [received, setReceived] = useState<boolean | any>();
+
+  // get id of user
   const token = localStorage.getItem("token");
   const id = () => {
     if (token) {
@@ -29,10 +31,10 @@ const MessageContainer = ({ receiverID, user }: any) => {
 
   const fetchMessages = () => {
     messageService
-      .getReceivedMessages(id, receiverID)
+      .getReceivedMessages(id(), receiverID)
       .then((message) => setReceived(message));
     messageService
-      .getSentMessages(id, receiverID)
+      .getSentMessages(id(), receiverID)
       .then((message) => setSent(message));
   };
 
