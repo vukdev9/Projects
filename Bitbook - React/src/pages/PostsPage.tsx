@@ -16,7 +16,7 @@ const PostsPage: React.FC = () => {
   const token = localStorage.getItem("token");
   const id = () => {
     if (token) {
-      getUserId();
+      getUserId(token);
     }
   };
 

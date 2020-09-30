@@ -31,7 +31,9 @@ const Comment = ({ id, body, owner, date, onCommentDeleted }: any) => {
       return `${user.firstName} ${user.lastName}`;
     }
   };
-  const userId = getUserId();
+
+  const token = localStorage.getItem("token");
+  const userId = getUserId(token);
 
   //DELETING COMMENT
   const handleDelete = () => {

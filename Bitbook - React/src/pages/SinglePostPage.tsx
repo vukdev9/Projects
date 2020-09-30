@@ -79,7 +79,8 @@ const SinglePostPage = (props: any) => {
   };
 
   //FINDING IF THIS IS YOUR POSTS, SO YOU CAN CHANGE THEM OR DELETE
-  const tokenId = getUserId();
+  const token = localStorage.getItem("token");
+  const tokenId = getUserId(token);
 
   const deleteAndUploadBtn = () => {
     if (user.id === tokenId) {

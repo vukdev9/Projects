@@ -9,7 +9,7 @@ const token: any = localStorage.getItem("token");
 export const sendingRegistrationData = (payload: any) => {
   return http.post(register, payload, null).then((data) => {
     localStorage.setItem("token", data.token);
-    getUserId();
+    getUserId(token);
     return data;
   });
 };
@@ -17,12 +17,12 @@ export const sendingRegistrationData = (payload: any) => {
 export const sendLoginData = (payload: any) => {
   return http.post(login, payload, null).then((data) => {
     localStorage.setItem("token", data.token);
-    getUserId();
+    getUserId(token);
     return data;
   });
 };
 
-export const getUserId = () => {
+export const getUserId = (token: any) => {
   if (token) {
     const jwtToken: { _id: any } = jwt_Decode(token);
     return jwtToken._id;

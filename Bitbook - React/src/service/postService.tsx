@@ -2,15 +2,8 @@ import { http } from "./http";
 import { posts } from "../shared/constants";
 import { Post } from "../models/Post";
 import { users } from "../shared/constants";
-import { getUserId } from "../service/registerService";
 
-const token: string = localStorage.getItem("token")!;
-
-// const id = () => {
-//   if (token) {
-//     getUserId();
-//   }
-// };
+const token: any = localStorage.getItem("token");
 
 class PostService {
   getAllPosts = () => {

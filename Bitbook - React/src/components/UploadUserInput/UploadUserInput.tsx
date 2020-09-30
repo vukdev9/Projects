@@ -31,7 +31,8 @@ const UploadUserInput = ({ user }: any) => {
   const [dialog, setDialog] = useState<boolean>(false);
   const history = useHistory();
   const loggedUser = useContext(LoggedUserContext);
-  const id = getUserId();
+  const token = localStorage.getItem("token");
+  const id = getUserId(token);
 
   const onSubmit = (data: any) => {
     if (user && user.id) {

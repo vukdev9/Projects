@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { sendingRegistrationData } from "../service/registerService";
 import { userService } from "../service/userService";
 
 const initalState: any = null;
@@ -14,6 +15,10 @@ const LoggedUserProvider = ({ children }: any) => {
       .then((user: any) => setUser(user))
       .catch((error) => console.log(error));
   }, []);
+
+  // const loggIn = (payload: any) => {
+  //   sendingRegistrationData(payload).then((data) => setUser(data));
+  // };
 
   const loggedUser = () => {
     userService.getLoggedUser().then((user: any) => setUser(user));

@@ -23,7 +23,7 @@ const MessageContainer = ({ receiverID, user }: any) => {
   const token = localStorage.getItem("token");
   const id = () => {
     if (token) {
-      return getUserId();
+      return getUserId(token);
     }
   };
 
