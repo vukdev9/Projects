@@ -1,0 +1,45 @@
+.userWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.userWrapper > div > h5 {
+  display: inline;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#date {
+  font-style: italic;
+  display: inline-block;
+}
+
+.userWrapper img {
+  width: 10%;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-top: 5px;
+}
+
+.messageProfile h2,
+.message h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.message {
+  margin: 10px 0;
+  border: 1px solid #adafb1;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #ff4081;
+  width: 80%;
+}
+
+.messageProfile {
+  margin: 10px 50px;
+  display: block;
+  border: 1px solid #adafb1;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #2196f3;
+  width: 80%;
+}

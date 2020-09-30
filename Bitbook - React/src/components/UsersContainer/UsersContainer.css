@@ -1,0 +1,40 @@
+.userContainer {
+  width: 80%;
+  margin: 10px auto 0;
+  border: 1px solid rgb(170, 168, 168);
+  padding: 10px;
+  margin-bottom: 40px;
+}
+
+#users {
+  font-weight: 500;
+  margin: 0;
+}
+
+.headingAndButton {
+  width: 80%;
+  margin: 80px auto 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.heading-wrapper {
+  width: 100%;
+}
+
+.button-wrapper {
+  width: 100%;
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
+.button-wrapper > button {
+  margin: 5px;
+}
+
+.headAndButton {
+  display: flex;
+  padding: 20px 10% 10px;
+}

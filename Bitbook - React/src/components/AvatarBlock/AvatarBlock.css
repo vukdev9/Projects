@@ -1,0 +1,17 @@
+.userBlock {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.userBlock img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+h1 {
+  display: inline-block;
+  margin-left: 40px;
+  font-weight: 700;
+}

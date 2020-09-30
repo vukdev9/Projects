@@ -1,0 +1,27 @@
+.Comment {
+  height: 165px;
+  overflow: auto;
+  border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+.Comment img {
+  width: 70px;
+  padding-left: 10px;
+}
+
+.Comment h3 {
+  margin-left: 2%;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: italic;
+  padding-top: 10px;
+}
+
+.commentBody {
+  display: flex;
+  justify-content: center;
+}
+
+.commentBody h3 {
+  padding-right: 15px;
+}

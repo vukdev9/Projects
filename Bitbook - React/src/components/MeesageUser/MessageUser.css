@@ -1,0 +1,16 @@
+.messageUser img {
+  max-width: 60px;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+.messageUser h1 {
+  font-size: 20px;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.messageUser {
+  margin-top: 10px;
+  cursor: pointer;
+}

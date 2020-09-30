@@ -1,0 +1,27 @@
+.userProfile {
+  margin-left: 100px;
+}
+
+.userProfile h1 {
+  font-weight: 400;
+  font-size: 45px;
+}
+
+.userProfile h5 {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.userProfile p {
+  text-align: left;
+  font-size: 20px;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.userProfile img {
+  width: 100%;
+  margin-top: 50px;
+}

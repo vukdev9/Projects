@@ -1,0 +1,26 @@
+.useritem {
+  display: flex;
+  background-color: #f2f2f2;
+  border: 1px solid rgb(175, 174, 174);
+  box-shadow: 10px 10px 7px rgb(172, 172, 172);
+  cursor: pointer;
+}
+
+.useritem img {
+  border-radius: 15px;
+  margin: 5px 15px 5px 5px;
+  max-width: 130px;
+  max-height: 185px;
+}
+
+.useritem div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: stretch;
+}
+
+.useritem h2 {
+  margin: 0;
+}

@@ -1,0 +1,40 @@
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.postContainer h2 {
+  font-size: 40px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.postContainer .postHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonWrapper {
+  display: inline;
+  float: right;
+  margin: 10px 20px 40px 50px;
+}
+
+.buttonWrapper button {
+  color: #fff;
+  background-color: #2196f3;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+#postWrapper {
+  border: 1px solid grey;
+  height: 100%;
+  overflow: auto;
+  min-height: 200px;
+}

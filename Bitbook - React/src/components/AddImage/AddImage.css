@@ -1,0 +1,26 @@
+.addtext {
+  width: 70%;
+  margin: 100px auto 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.addtext h1 {
+  display: block;
+  color: rgb(119, 118, 118);
+  font-size: 50px;
+  margin: 50px 0;
+}
+
+.addPostWrapper {
+  float: right;
+}
+
+.headingDiv {
+  display: flex;
+}
+
+.labelbutton {
+  width: 100%;
+  text-align: right;
+}

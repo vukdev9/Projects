@@ -1,0 +1,24 @@
+h2 {
+  margin-left: 30px;
+  margin-top: 0px;
+}
+
+.container {
+  margin-left: 30px;
+  overflow-y: auto;
+  max-height: 500px;
+  border: 1px solid rgb(167, 167, 167);
+}
+
+.buttons {
+  float: right;
+  margin-top: 10px;
+}
+
+.noComment {
+  padding-left: 10px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: larger;
+  color: #2196f3;
+}

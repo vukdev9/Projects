@@ -1,10 +1,20 @@
-const requestHeader = {
-    'Content-Type': 'application/json',
-    'x-api-key': 'B1tD3V'
-}
-export const registerEndpoint = 'https://crud-api.hypetech.xyz/v1/auth/register'
-export const loginEndpoint = 'https://crud-api.hypetech.xyz/v1/auth/login'
-export const postsEndpoint = 'https://crud-api.hypetech.xyz/v1/posts'
-export const commentsEndpoint = 'https://crud-api.hypetech.xyz/v1/comments'
+export const requestHeader = {
+  "Content-Type": "application/json",
+  "x-api-key": "1vaHd3v",
+};
 
-export default requestHeader
+export const register =
+  "https://backend-social-network.herokuapp.com/auth/register";
+
+export const login = "https://backend-social-network.herokuapp.com/auth/login";
+
+export const posts = "https://backend-social-network.herokuapp.com/posts";
+
+export const comments = "https://backend-social-network.herokuapp.com/comments";
+
+export const users = "https://backend-social-network.herokuapp.com/users";
+
+export const passwordChange =
+  "https://backend-social-network.herokuapp.com/auth/password/change";
+
+export const messages = "https://backend-social-network.herokuapp.com/messages";
