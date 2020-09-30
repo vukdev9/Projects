@@ -4,11 +4,12 @@ import { login } from "../shared/constants";
 import { passwordChange } from "../shared/constants";
 import jwt_Decode from "jwt-decode";
 
-const token = localStorage.getItem("token")!;
+const token: any = localStorage.getItem("token");
 
 export const sendingRegistrationData = (payload: any) => {
   return http.post(register, payload, null).then((data) => {
     localStorage.setItem("token", data.token);
+    console.log(data);
     getUserId();
     return data;
   });

@@ -7,13 +7,18 @@ import { postService } from "../service/postService";
 import { messageService } from "../service/messageService";
 import { getUserId } from "../service/registerService";
 
-const id = getUserId();
-
 const PostsPage: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const [unread, setUnread] = useState(0);
+
+  const token = localStorage.getItem("token");
+  const id = () => {
+    if (token) {
+      getUserId();
+    }
+  };
 
   useEffect(() => {
     postService.getAllPosts().then((allPosts) => {

@@ -5,7 +5,7 @@ import { Message } from "../models/Message";
 const token = localStorage.getItem("token");
 
 class MessageService {
-  getSentMessages = (senderID: string, receiverID: string) => {
+  getSentMessages = (senderID: any, receiverID: any) => {
     return http
       .get(`${messages}/sent/${senderID}/${receiverID}`, token)
       .then((message) => {
@@ -13,7 +13,7 @@ class MessageService {
       });
   };
 
-  getReceivedMessages = (senderID: string, receiverID: string) => {
+  getReceivedMessages = (senderID: any, receiverID: any) => {
     return http
       .get(`${messages}/received/${receiverID}/${senderID}`, token)
       .then((message) => {
@@ -25,7 +25,7 @@ class MessageService {
     return http.post(`${messages}/send`, data, token);
   };
 
-  getUnreadNumbers = (receiverID: string) => {
+  getUnreadNumbers = (receiverID: any) => {
     return http
       .get(`${messages}/unread/${receiverID}`, token)
       .then((number) => {

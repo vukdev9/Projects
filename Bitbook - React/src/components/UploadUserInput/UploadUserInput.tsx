@@ -44,7 +44,10 @@ const UploadUserInput = ({ user }: any) => {
   };
 
   const deleteUser = () => {
-    userService.deleteUser(id).then(() => history.push("/"));
+    userService
+      .deleteUser(id)
+      .then(() => localStorage.clear())
+      .then(() => history.push("/"));
   };
 
   return (

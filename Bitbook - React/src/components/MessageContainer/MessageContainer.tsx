@@ -20,7 +20,12 @@ const MessageContainer = ({ receiverID, user }: any) => {
   const { register, handleSubmit } = useForm();
   const [sent, setSent] = useState<boolean | any>();
   const [received, setReceived] = useState<boolean | any>();
-  const id = getUserId();
+  const token = localStorage.getItem("token");
+  const id = () => {
+    if (token) {
+      return getUserId();
+    }
+  };
 
   const fetchMessages = () => {
     messageService
