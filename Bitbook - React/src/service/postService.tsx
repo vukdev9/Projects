@@ -6,11 +6,11 @@ import { getUserId } from "../service/registerService";
 
 const token: string = localStorage.getItem("token")!;
 
-const id = () => {
-  if (token) {
-    getUserId();
-  }
-};
+// const id = () => {
+//   if (token) {
+//     getUserId();
+//   }
+// };
 
 class PostService {
   getAllPosts = () => {

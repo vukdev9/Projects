@@ -9,7 +9,6 @@ const token: any = localStorage.getItem("token");
 export const sendingRegistrationData = (payload: any) => {
   return http.post(register, payload, null).then((data) => {
     localStorage.setItem("token", data.token);
-    console.log(data);
     getUserId();
     return data;
   });
@@ -24,8 +23,12 @@ export const sendLoginData = (payload: any) => {
 };
 
 export const getUserId = () => {
-  const jwtToken: { _id: any } = jwt_Decode(token);
-  return jwtToken._id;
+  if (token) {
+    const jwtToken: { _id: any } = jwt_Decode(token);
+    return jwtToken._id;
+  } else {
+    return null;
+  }
 };
 
 export const logOut = () => {

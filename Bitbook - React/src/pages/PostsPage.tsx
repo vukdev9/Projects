@@ -21,7 +21,7 @@ const PostsPage: React.FC = () => {
   };
 
   useEffect(() => {
-    postService.getAllPosts().then((allPosts) => {
+    postService.getAllPosts().then((allPosts: any) => {
       setPosts(allPosts);
       setLoading(false);
     });
