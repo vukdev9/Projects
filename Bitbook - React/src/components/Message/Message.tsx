@@ -1,11 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import "./Message.css";
 import { LoggedUserContext } from "../../context/LoggedUserContext";
 import { bufferDecode } from "../../shared/helperFunction";
-import "./Message.css";
+import { messageService } from "../../service/messageService";
 
-const Message = ({ body, date, user, from, to }: any) => {
+const Message = ({ body, date, user, from, to, myID, data }: any) => {
   const myUser = useContext(LoggedUserContext);
-  //getting users image and name
+
+  useEffect(() => {
+    messageService.readAllMessagesFromSpecificUser(user.id, myID, data);
+  }, []);
+
+  //getting users image
   const image = () => {
     if (from) {
       if (user && user.avatarUrl) {
@@ -22,6 +28,7 @@ const Message = ({ body, date, user, from, to }: any) => {
     }
   };
 
+  //getting user name
   const name = () => {
     if (from) {
       if (user && user.firstName) {

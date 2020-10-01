@@ -40,6 +40,18 @@ class MessageService {
         return message.data;
       });
   };
+
+  readAllMessagesFromSpecificUser = (
+    senderID: string,
+    receiverID: string,
+    data: any
+  ) => {
+    return http.patch(
+      `${messages}/read/${senderID}/${receiverID}`,
+      data,
+      token
+    );
+  };
 }
 
 export const messageService = new MessageService();

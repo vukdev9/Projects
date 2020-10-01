@@ -65,6 +65,8 @@ const MessageContainer = ({ receiverID, user }: any) => {
           user={user}
           from={mess.from}
           to={mess.to}
+          myID={id()}
+          data={allMessages}
         />
       ));
     }
@@ -84,7 +86,7 @@ const MessageContainer = ({ receiverID, user }: any) => {
         />
         <TextField
           name="senderID"
-          value={id}
+          value={id()}
           style={hideTextField}
           inputRef={register()}
         />

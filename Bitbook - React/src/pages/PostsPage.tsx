@@ -16,7 +16,7 @@ const PostsPage: React.FC = () => {
   const token = localStorage.getItem("token");
   const id = () => {
     if (token) {
-      getUserId(token);
+      return getUserId(token);
     }
   };
 
@@ -25,7 +25,9 @@ const PostsPage: React.FC = () => {
       setPosts(allPosts);
       setLoading(false);
     });
-    messageService.getUnreadNumbers(id).then((response) => setUnread(response));
+    messageService
+      .getUnreadNumbers(id())
+      .then((response) => setUnread(response));
   }, []);
 
   if (loading) {

@@ -14,7 +14,6 @@ import { sendingRegistrationData } from "../service/registerService";
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router";
-import { HistorySharp } from "@material-ui/icons";
 
 const Copyright = () => {
   return (

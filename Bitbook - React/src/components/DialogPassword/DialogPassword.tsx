@@ -9,15 +9,12 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { changePassword } from "../../service/registerService";
 import { useForm } from "react-hook-form";
 
-const DialogPassword = ({ handleOpen }: any) => {
+const DialogPassword = ({ handleOpen, resetDialog }: any) => {
   const [open, setOpen] = React.useState(true);
   const { register, handleSubmit } = useForm();
 
-  //   const handleClickOpen = () => {
-  //     setOpen(true);
-  //   };
-
   const handleClose = () => {
+    resetDialog();
     setOpen(false);
   };
 
@@ -36,7 +33,7 @@ const DialogPassword = ({ handleOpen }: any) => {
           <DialogTitle id="form-dialog-title">Change Password</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please enter, email address, old password and then enter new
+              Please enter email address, old password and then enter new
               password
             </DialogContentText>
             <TextField

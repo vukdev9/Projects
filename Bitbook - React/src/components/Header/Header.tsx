@@ -137,6 +137,10 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
     handleMobileMenuClose();
   };
 
+  const handleDialogClose = () => {
+    setDialog(false);
+  };
+
   const handleMobileMenuOpen = (event: {
     currentTarget: React.SetStateAction<null>;
   }) => {
@@ -346,7 +350,7 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
       {renderMobileMenu}
       {renderMenu}
       {renderFeed}
-      {dialog && <DialogPassword />}
+      {dialog && <DialogPassword resetDialog={() => handleDialogClose()} />}
     </div>
   );
 };
