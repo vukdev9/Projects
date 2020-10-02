@@ -1,6 +1,6 @@
 .userWrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .userWrapper > div > h5 {
@@ -11,7 +11,8 @@
 
 #date {
   font-style: italic;
-  display: inline-block;
+  margin-right: 5px;
+  /* display: inline-block; */
 }
 
 .userWrapper img {
@@ -19,6 +20,7 @@
   border-radius: 50%;
   vertical-align: middle;
   margin-top: 5px;
+  margin-left: 5px;
 }
 
 .messageProfile h2,
@@ -36,7 +38,7 @@
 }
 
 .messageProfile {
-  margin: 10px 50px;
+  margin: 10px 5px 0 auto;
   display: block;
   border: 1px solid #adafb1;
   border-radius: 10px;

@@ -17,13 +17,13 @@ const Message = ({ body, date, user, from, to, myID, data }: any) => {
       if (user && user.avatarUrl) {
         return bufferDecode("image", user.avatarUrl);
       } else {
-        return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcZsL6PVn0SNiabAKz7js0QknS2ilJam19QQ&usqp=CAU";
       }
     } else if (to) {
       if (myUser.user && myUser.user.avatarUrl) {
         return bufferDecode("image", myUser.user.avatarUrl);
       } else {
-        return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcZsL6PVn0SNiabAKz7js0QknS2ilJam19QQ&usqp=CAU";
       }
     }
   };

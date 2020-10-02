@@ -7,12 +7,16 @@ const UsersContext = createContext(initialState);
 
 const UsersProvider = ({ children }: any) => {
   const [users, setUsers] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    userService
-      .getAllUsers()
-      .then((allUsers) => setUsers(allUsers))
-      .catch((error) => console.log(error));
+    {
+      token &&
+        userService
+          .getAllUsers()
+          .then((allUsers) => setUsers(allUsers))
+          .catch((error) => console.log(error));
+    }
   }, []);
 
   return (

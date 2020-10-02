@@ -8,12 +8,16 @@ const LoggedUserContext = createContext(initalState);
 
 const LoggedUserProvider = ({ children }: any) => {
   const [user, setUser] = useState(null);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    userService
-      .getLoggedUser()
-      .then((user: any) => setUser(user))
-      .catch((error) => console.log(error));
+    {
+      token &&
+        userService
+          .getLoggedUser()
+          .then((user: any) => setUser(user))
+          .catch((error) => console.log(error));
+    }
   }, []);
 
   // const loggIn = (payload: any) => {

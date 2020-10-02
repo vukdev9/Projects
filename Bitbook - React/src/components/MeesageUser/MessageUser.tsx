@@ -26,7 +26,7 @@ const MessageUser = ({ user }: any) => {
     if (user.avatarUrl) {
       return bufferDecode("image", user.avatarUrl);
     } else {
-      return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";
+      return "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcZsL6PVn0SNiabAKz7js0QknS2ilJam19QQ&usqp=CAU";
     }
   };
 

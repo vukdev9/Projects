@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
-import DeleteUSer from "../../components/DialogDeleteUser/DeleteUser";
+import DialogDeleteUser from "../../components/DialogDeleteUser/DeleteUser";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { userService } from "../../service/userService";
@@ -30,15 +30,20 @@ const UploadUserInput = ({ user }: any) => {
   const { register, handleSubmit, errors } = useForm();
   const [dialog, setDialog] = useState<boolean>(false);
   const history = useHistory();
-  const loggedUser = useContext(LoggedUserContext);
+  const { loggedUser } = useContext(LoggedUserContext);
   const token = localStorage.getItem("token");
   const id = getUserId(token);
+
+  useEffect(() => {
+    prefixCatcher();
+    firstNameCatcher();
+  }, []);
 
   const onSubmit = (data: any) => {
     if (user && user.id) {
       userService
         .updateUser(user.id, data)
-        .then(() => loggedUser.loggedUser())
+        .then(() => loggedUser())
         .then(() => setTimeout(() => history.push("/profile"), 500))
         .catch((error) => console.log(error));
     }
@@ -51,6 +56,34 @@ const UploadUserInput = ({ user }: any) => {
       .then(() => history.push("/"));
   };
 
+  const prefixCatcher = () => {
+    if (user && user.prefix) {
+      return user.prefix;
+    }
+  };
+
+  const firstNameCatcher = () => {
+    if (user && user.firstName) {
+      return user.firstName;
+    }
+  };
+
+  const lastNameCatcher = () => {
+    if (user && user.lastName) {
+      return user.lastName;
+    }
+  };
+
+  const aboutCatcher = () => {
+    if (user && user.about) {
+      return user.about;
+    }
+  };
+
+  const resetDialog = () => {
+    setDialog(false);
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -61,6 +94,7 @@ const UploadUserInput = ({ user }: any) => {
           label="Prefix"
           variant="outlined"
           type="text"
+          defaultValue={prefixCatcher()}
           style={fullInputStyling}
           inputRef={register({ required: true, minLength: 2 })}
           error={Boolean(errors.prefix)}
@@ -74,6 +108,7 @@ const UploadUserInput = ({ user }: any) => {
           label="First Name"
           variant="outlined"
           type="text"
+          defaultValue={firstNameCatcher()}
           style={halfInputStyling}
           inputRef={register({ required: true, minLength: 2 })}
           error={Boolean(errors.firstName)}
@@ -89,6 +124,7 @@ const UploadUserInput = ({ user }: any) => {
           label="Last Name"
           variant="outlined"
           type="text"
+          defaultValue={lastNameCatcher()}
           style={halfInputSecondStyling}
           inputRef={register({ required: true, minLength: 2 })}
           error={Boolean(errors.lastName)}
@@ -104,6 +140,7 @@ const UploadUserInput = ({ user }: any) => {
           multiline
           rows={4}
           variant="outlined"
+          defaultValue={aboutCatcher()}
           style={fullInputStyling}
           inputRef={register({ required: true, minLength: 10 })}
           error={Boolean(errors.about)}
@@ -135,7 +172,12 @@ const UploadUserInput = ({ user }: any) => {
       >
         Delete Profile
       </Button>
-      {dialog ? <DeleteUSer deleteUser={deleteUser} /> : null}
+      {dialog ? (
+        <DialogDeleteUser
+          deleteUser={deleteUser}
+          resetDialog={() => resetDialog()}
+        />
+      ) : null}
     </form>
   );
 };

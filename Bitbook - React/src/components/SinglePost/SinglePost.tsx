@@ -28,6 +28,8 @@ const SinglePost = ({ type, src, createdAt }: singlePost) => {
     }
   }, [type]);
 
+  console.log(type, src);
+
   //URL
   const url = () => {
     if (src) {

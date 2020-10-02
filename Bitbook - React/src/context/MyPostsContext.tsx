@@ -20,10 +20,13 @@ const MyPostsProvider = ({ children }: any) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    postService
-      .getUsersPosts(userId())
-      .then((posts) => setPosts(posts))
-      .catch((error) => console.log(error));
+    {
+      token &&
+        postService
+          .getUsersPosts(userId())
+          .then((posts) => setPosts(posts))
+          .catch((error) => console.log(error));
+    }
   }, []);
 
   const fetchMyPosts = () => {

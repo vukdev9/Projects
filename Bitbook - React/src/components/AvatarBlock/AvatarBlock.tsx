@@ -8,10 +8,17 @@ interface avatar {
 }
 
 const AvatarBlock = ({ name, image }: avatar) => {
-  const url = bufferDecode("image", image);
+  const avatarImage = () => {
+    if (image) {
+      return bufferDecode("image", image);
+    } else {
+      return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";
+    }
+  };
+
   return (
     <div className="userBlock">
-      <img src={url} alt="..." />
+      <img src={avatarImage()} alt={name} />
       <h1>{name}</h1>
     </div>
   );

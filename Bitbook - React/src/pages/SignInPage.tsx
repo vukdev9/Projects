@@ -78,7 +78,7 @@ const SignInPage: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     sendLoginData(data)
       .then(() => history.push("/posts"))
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error));
   };
 
   return (

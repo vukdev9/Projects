@@ -8,7 +8,9 @@ const token: any = localStorage.getItem("token");
 class PostService {
   getAllPosts = () => {
     return http.get(posts, token).then((posts) => {
-      return posts.data.map((post: any) => new Post(post));
+      if (posts.data) {
+        return posts.data.map((post: any) => new Post(post));
+      }
     });
   };
 

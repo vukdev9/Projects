@@ -8,10 +8,11 @@ const displayInput = {
 };
 
 const UploadProfileImage = ({ user }: any) => {
+  // const [profilePhoto, setProfilePhoto] = useState();
+
   const uploadPhoto = (e: any) => {
     const file = e.target.files[0];
-
-    const data = userService
+    return userService
       .uploadUserImage(user.id, file)
       .then((data) => console.log(data))
       .catch((e) => console.log(e));

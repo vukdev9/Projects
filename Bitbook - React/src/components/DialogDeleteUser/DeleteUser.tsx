@@ -6,14 +6,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-const DeleteUser = ({ deleteUser }: any) => {
+const DialogDeleteUser = ({ deleteUser, resetDialog }: any) => {
   const [open, setOpen] = useState<boolean>(true);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
   const handleClose = () => {
+    resetDialog();
     setOpen(false);
   };
 
@@ -44,4 +41,4 @@ const DeleteUser = ({ deleteUser }: any) => {
   );
 };
 
-export default DeleteUser;
+export default DialogDeleteUser;
