@@ -28,15 +28,12 @@ const SinglePost = ({ type, src, createdAt }: singlePost) => {
     }
   }, [type]);
 
-  console.log(type, src);
-
   //URL
   const url = () => {
     if (src) {
       return bufferDecode(type, src);
     }
   };
-  const source = url();
 
   //DATE
   const time = new Date(createdAt);
@@ -44,11 +41,11 @@ const SinglePost = ({ type, src, createdAt }: singlePost) => {
 
   return (
     <div className="singlePost">
-      {showImage && <img src={source} alt="..." className="postImage" />}
+      {showImage && <img src={url()} alt="..." className="postImage" />}
       {showVideo && (
-        <ReactPlayer url={source} controls={true} width="100%" height="500px" />
+        <ReactPlayer url={url()} controls={true} width="100%" height="500px" />
       )}
-      {showText && <p className="postText">{source}</p>}
+      {showText && <p className="postText">{url()}</p>}
       <p id="publish">Published at: {date} </p>
     </div>
   );

@@ -1,43 +1,43 @@
 import { requestHeader } from "../shared/constants";
 
 class HTTP {
-  get(url: string, token: any) {
+  get(url: string) {
     return fetch(url, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         ...requestHeader,
       },
     }).then((response) => response.json());
   }
 
-  post(url: string, data: any, token: any) {
+  post(url: string, data: any) {
     return fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         ...requestHeader,
       },
     }).then((response) => response.json());
   }
 
-  patch(url: string, data: any, token: any) {
+  patch(url: string, data: any) {
     return fetch(url, {
       method: "PATCH",
       body: JSON.stringify(data),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         ...requestHeader,
       },
     });
   }
 
-  delete(url: any, token: any) {
+  delete(url: any) {
     return fetch(url, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         ...requestHeader,
       },
     });

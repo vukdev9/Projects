@@ -5,8 +5,8 @@ const SadEmoji = () => {
   return (
     <img
       className="sadEmoji"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSyaFg_XvGCDXbqcbfMnumEL9N8wwaQ_bHv-A&usqp=CAU"
-      alt="Sad Emoji"
+      src="https://i.pinimg.com/originals/5d/35/e3/5d35e39988e3a183bdc3a9d2570d20a9.gif"
+      alt="No posts"
     />
   );
 };

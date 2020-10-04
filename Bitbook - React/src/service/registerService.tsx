@@ -7,7 +7,7 @@ import jwt_Decode from "jwt-decode";
 const token: any = localStorage.getItem("token");
 
 export const sendingRegistrationData = (payload: any) => {
-  return http.post(register, payload, null).then((data) => {
+  return http.post(register, payload).then((data) => {
     localStorage.setItem("token", data.token);
     getUserId(token);
     return data;
@@ -15,7 +15,7 @@ export const sendingRegistrationData = (payload: any) => {
 };
 
 export const sendLoginData = (payload: any) => {
-  return http.post(login, payload, null).then((data) => {
+  return http.post(login, payload).then((data) => {
     localStorage.setItem("token", data.token);
     getUserId(token);
     return data;
@@ -36,5 +36,5 @@ export const logOut = () => {
 };
 
 export const changePassword = (data: any) => {
-  return http.patch(passwordChange, data, token);
+  return http.patch(passwordChange, data);
 };

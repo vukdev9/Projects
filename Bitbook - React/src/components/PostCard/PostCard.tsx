@@ -101,7 +101,7 @@ const PostCard = ({ type, id, owner, created, src }: any) => {
   };
 
   // get URL from buffer
-  const url = bufferDecode(type, src);
+  const source = bufferDecode(type, src);
 
   const decodeAvatar = () => {
     if (user.avatarUrl) {
@@ -125,12 +125,12 @@ const PostCard = ({ type, id, owner, created, src }: any) => {
         subheader={`Published at: ${date}`}
       />
       {videoShow && (
-        <ReactPlayer url={url} controls={true} width="100%" height="50%" />
+        <ReactPlayer url={source} controls={true} width="100%" height="50%" />
       )}
-      {imageShow && <CardMedia className={classes.media} image={url} />}
-      <CardContent>
+      {imageShow && <CardMedia className={classes.media} image={source} />}
+      <CardContent style={{ overflow: "hidden" }}>
         <Typography variant="body2" color="textSecondary" component="p">
-          {textShow && url}
+          {textShow && source}
         </Typography>
       </CardContent>
       <CardActions

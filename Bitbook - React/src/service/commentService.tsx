@@ -7,17 +7,17 @@ const token = localStorage.getItem("token");
 
 class CommentService {
   createComment = (data: any) => {
-    return http.post(comments, data, token);
+    return http.post(comments, data);
   };
 
   getPostComments = (id: any) => {
-    return http.get(`${posts}/${id}/comments`, token).then((comments) => {
+    return http.get(`${posts}/${id}/comments`).then((comments) => {
       return comments.data.map((comment: any) => new Comment(comment));
     });
   };
 
   deleteComment = (id: any) => {
-    return http.delete(`${comments}/${id}`, token);
+    return http.delete(`${comments}/${id}`);
   };
 }
 

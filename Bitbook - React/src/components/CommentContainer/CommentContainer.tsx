@@ -30,6 +30,7 @@ const CommentContainer = ({ comments, onCommentCreated, postId }: any) => {
         }) => {
           return (
             <Comment
+              key={comment.id}
               id={comment.id}
               body={comment.body}
               owner={comment.owner}

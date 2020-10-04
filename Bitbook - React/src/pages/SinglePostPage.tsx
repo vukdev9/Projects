@@ -91,7 +91,7 @@ const SinglePostPage = (props: any) => {
               name="src"
               label="Update Post..."
               variant="outlined"
-              type="url"
+              type="text"
               style={{ width: "50%" }}
               inputRef={register()}
               error={Boolean(errors.image)}

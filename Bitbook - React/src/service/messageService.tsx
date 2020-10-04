@@ -2,12 +2,10 @@ import { http } from "./http";
 import { messages } from "../shared/constants";
 import { Message } from "../models/Message";
 
-const token = localStorage.getItem("token");
-
 class MessageService {
   getSentMessages = (senderID: any, receiverID: any) => {
     return http
-      .get(`${messages}/sent/${senderID}/${receiverID}`, token)
+      .get(`${messages}/sent/${senderID}/${receiverID}`)
       .then((message) => {
         return message.data.map((mess: any) => new Message(mess));
       });
@@ -15,27 +13,25 @@ class MessageService {
 
   getReceivedMessages = (senderID: any, receiverID: any) => {
     return http
-      .get(`${messages}/received/${receiverID}/${senderID}`, token)
+      .get(`${messages}/received/${receiverID}/${senderID}`)
       .then((message) => {
         return message.data.map((mess: any) => new Message(mess));
       });
   };
 
   createMessage = (data: any) => {
-    return http.post(`${messages}/send`, data, token);
+    return http.post(`${messages}/send`, data);
   };
 
   getUnreadNumbers = (receiverID: any) => {
-    return http
-      .get(`${messages}/unread/${receiverID}`, token)
-      .then((number) => {
-        return number.data;
-      });
+    return http.get(`${messages}/unread/${receiverID}`).then((number) => {
+      return number.data;
+    });
   };
 
   getUnreadFromSpecificUser = (senderID: string, receiverID: string) => {
     return http
-      .get(`${messages}/unread/${senderID}/${receiverID}`, token)
+      .get(`${messages}/unread/${senderID}/${receiverID}`)
       .then((message) => {
         return message.data;
       });
@@ -46,11 +42,7 @@ class MessageService {
     receiverID: string,
     data: any
   ) => {
-    return http.patch(
-      `${messages}/read/${senderID}/${receiverID}`,
-      data,
-      token
-    );
+    return http.patch(`${messages}/read/${senderID}/${receiverID}`, data);
   };
 }
 
