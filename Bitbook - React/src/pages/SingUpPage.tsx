@@ -77,7 +77,9 @@ const SignUpPage: React.FC = () => {
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    sendingRegistrationData(data).then(() => history.push("/posts"));
+    sendingRegistrationData(data)
+      .then(() => history.push("/posts"))
+      .catch((error) => console.log(error));
   };
 
   return (

@@ -35,6 +35,8 @@ const SinglePost = ({ type, src, createdAt }: singlePost) => {
     }
   };
 
+  console.log(url());
+
   //DATE
   const time = new Date(createdAt);
   const date = `${time.getDate()} ${time.getMonth() + 1} ${time.getFullYear()}`;

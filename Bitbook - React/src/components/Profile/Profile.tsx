@@ -1,36 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Profile.css";
 import { LoggedUserContext } from "../../context/LoggedUserContext";
 import { bufferDecode } from "../../shared/helperFunction";
 
 const Profile = () => {
-  const profileContext = useContext(LoggedUserContext);
+  const { loggedUser, user } = useContext(LoggedUserContext);
+
+  useEffect(() => {
+    loggedUser();
+  }, []);
 
   const name = () => {
-    if (profileContext && profileContext.user) {
-      return `${profileContext.user.firstName} ${profileContext.user.lastName}`;
+    if (user && user.firstName) {
+      return `${user.firstName} ${user.lastName}`;
     }
   };
 
   const email = () => {
-    if (profileContext && profileContext.user) {
-      return profileContext.user.email;
+    if (user && user.email) {
+      return user.email;
     }
   };
 
   const about = () => {
-    if (profileContext && profileContext.user) {
-      return profileContext.user.about;
+    if (user && user.about) {
+      return user.about;
     }
   };
 
   const image = () => {
-    if (
-      profileContext &&
-      profileContext.user &&
-      profileContext.user.avatarUrl
-    ) {
-      return bufferDecode("image", profileContext.user.avatarUrl);
+    if (user && user.avatarUrl && user.avatarUrl) {
+      return bufferDecode("image", user.avatarUrl);
     } else {
       return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";
     }

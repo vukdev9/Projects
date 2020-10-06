@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./UsersContainer.css";
 import { Grid } from "@material-ui/core";
 import { UsersContext } from "../../context/UsersContext";
 import UserProfileList from "../UserProfileList/UserProfileList";
 
 const UsersContainer = (): any => {
-  const users = useContext(UsersContext);
+  const { fetchUsers, users } = useContext(UsersContext);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
   return (
     <>
       <div className="headAndButton">

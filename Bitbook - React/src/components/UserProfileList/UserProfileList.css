@@ -24,3 +24,9 @@
 .useritem h2 {
   margin: 0;
 }
+
+.useritem:hover {
+  background-color: rgb(178, 208, 228);
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}

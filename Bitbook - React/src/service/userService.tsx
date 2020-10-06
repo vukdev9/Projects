@@ -9,6 +9,7 @@ class UserService {
       .then((user) => new User(user))
       .catch((error) => console.log(error));
   };
+
   getAllUsers = () => {
     return http
       .get(users)
@@ -17,20 +18,25 @@ class UserService {
       })
       .catch((error) => console.log(error));
   };
+
   getSingleUser = (id: string) => {
     return http
       .get(`${users}/${id}`)
       .then((users) => new User(users.data))
       .catch((error) => console.log(error));
   };
+
   updateUser = (id: string, data: any) => {
     return http.patch(`${users}/${id}`, data);
   };
+
   uploadUserImage = (id: string, file: any) => {
     let formData = new FormData();
     formData.append("image", file, file.name);
+    console.log(formData);
     return http.post(`${users}/${id}/image`, formData);
   };
+
   deleteUser = (id: string) => {
     return http.delete(`${users}/${id}`);
   };

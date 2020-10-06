@@ -39,7 +39,6 @@ const AddImagePost = () => {
       .then(() => myPostsContext.fetchMyPosts())
       .then(() => setTimeout(() => history.push("profile"), 500))
       .catch((error) => console.log(error));
-    console.log(data);
   };
 
   return (

@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import { sendingRegistrationData } from "../service/registerService";
 import { userService } from "../service/userService";
 
 const initalState: any = null;
@@ -8,24 +7,12 @@ const LoggedUserContext = createContext(initalState);
 
 const LoggedUserProvider = ({ children }: any) => {
   const [user, setUser] = useState(null);
-  const token = localStorage.getItem("token");
-
-  useEffect(() => {
-    {
-      token &&
-        userService
-          .getLoggedUser()
-          .then((user: any) => setUser(user))
-          .catch((error) => console.log(error));
-    }
-  }, []);
-
-  // const loggIn = (payload: any) => {
-  //   sendingRegistrationData(payload).then((data) => setUser(data));
-  // };
 
   const loggedUser = () => {
-    userService.getLoggedUser().then((user: any) => setUser(user));
+    userService
+      .getLoggedUser()
+      .then((user: any) => setUser(user))
+      .catch((error) => console.log(error));
   };
 
   return (

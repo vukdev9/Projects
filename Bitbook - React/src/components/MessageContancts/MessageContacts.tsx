@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./MessageContacts.css";
 import MessageUser from "../MeesageUser/MessageUser";
 import { UsersContext } from "../../context/UsersContext";
 
 const MessageContacts = () => {
-  const users = useContext(UsersContext);
+  const { fetchUsers, users } = useContext(UsersContext);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <div className="messageContacts">

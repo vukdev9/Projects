@@ -3,8 +3,6 @@ import { posts } from "../shared/constants";
 import { comments } from "../shared/constants";
 import { Comment } from "../models/Comment";
 
-const token = localStorage.getItem("token");
-
 class CommentService {
   createComment = (data: any) => {
     return http.post(comments, data);

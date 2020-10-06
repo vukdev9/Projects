@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./PostContainer.css";
 import { Link } from "react-router-dom";
 import PostCard from "../PostCard/PostCard";
 import { Grid } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import { MyPostsContext } from "../../context/MyPostsContext";
 
 const buttonStyling = {
   color: "#fff",
@@ -16,17 +17,23 @@ const addPostStyling = {
   textDecoration: "none",
 };
 
-const PostContainer = ({ posts }: any) => {
+const PostContainer = () => {
+  const { fetchMyPosts, posts } = useContext(MyPostsContext);
+
+  useEffect(() => {
+    fetchMyPosts();
+  }, []);
+
   const renderPost = () => {
     if (posts) {
-      if (posts.posts.length === 0) {
+      if (posts.length === 0) {
         return (
           <h2 style={{ padding: "20px", color: "#2196f3" }}>
             There are no Posts yet...
           </h2>
         );
       } else {
-        return posts.posts.map((post: any) => {
+        return posts.map((post: any) => {
           return (
             <Grid item xs={12} sm={6} md={6} lg={4} xl={4} key={post.id}>
               <PostCard
