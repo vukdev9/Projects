@@ -4,11 +4,10 @@ import { login } from "../shared/constants";
 import { passwordChange } from "../shared/constants";
 import jwt_Decode from "jwt-decode";
 
-const token: any = localStorage.getItem("token");
-
 export const sendingRegistrationData = (payload: any) => {
   return http.post(register, payload).then((data) => {
     localStorage.setItem("token", data.token);
+    const token: any = localStorage.getItem("token");
     getUserId(token);
     return data;
   });
@@ -17,10 +16,13 @@ export const sendingRegistrationData = (payload: any) => {
 export const sendLoginData = (payload: any) => {
   return http.post(login, payload).then((data) => {
     localStorage.setItem("token", data.token);
+    const token: any = localStorage.getItem("token");
     getUserId(token);
     return data;
   });
 };
+
+const token: any = localStorage.getItem("token");
 
 export const getUserId = (token: any) => {
   const jwtToken: { _id: any } = jwt_Decode(token);
