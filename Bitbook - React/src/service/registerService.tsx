@@ -23,12 +23,8 @@ export const sendLoginData = (payload: any) => {
 };
 
 export const getUserId = (token: any) => {
-  if (token) {
-    const jwtToken: { _id: any } = jwt_Decode(token);
-    return jwtToken._id;
-  } else {
-    return null;
-  }
+  const jwtToken: { _id: any } = jwt_Decode(token);
+  return jwtToken._id;
 };
 
 export const logOut = () => {

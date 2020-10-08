@@ -36,7 +36,7 @@ const SingleUserMessagePage = ({ match }: any) => {
     <>
       <Header showFeedButton={false} />
       <h1 style={headerStyling}>Conversation with {name()} </h1>
-      <MessageContainer receiverID={receiverid()} user={user} />
+      <MessageContainer receiverID={receiverid()} otherUser={user} />
       <Footer />
     </>
   );

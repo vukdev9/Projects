@@ -75,7 +75,6 @@ const AddImagePost = () => {
           name="src"
           label="Image URL..."
           variant="outlined"
-          required
           type="url"
           style={inputFullStyle}
           inputRef={register({ required: true })}

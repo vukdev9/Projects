@@ -16,12 +16,12 @@ const hideTextField = {
   display: "none",
 };
 
-const MessageContainer = ({ receiverID, user }: any) => {
+const MessageContainer = ({ receiverID, otherUser }: any) => {
   const { register, handleSubmit } = useForm();
   const [sent, setSent] = useState<boolean | any>();
   const [received, setReceived] = useState<boolean | any>();
 
-  // get id of user
+  // get id of MyProfile
   const token = localStorage.getItem("token");
   const id = () => {
     if (token) {
@@ -62,7 +62,7 @@ const MessageContainer = ({ receiverID, user }: any) => {
           key={mess.id}
           body={mess.body}
           date={mess.createdAt}
-          user={user}
+          otherUser={otherUser}
           from={mess.from}
           to={mess.to}
           myID={id()}
