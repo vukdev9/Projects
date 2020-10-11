@@ -9,17 +9,13 @@ import { postService } from "../../service/postService";
 import { useHistory } from "react-router";
 import { MyPostsContext } from "../../context/MyPostsContext";
 
-const inputTitleStyle = {
-  width: "30%",
-  marginBottom: "20px",
-};
-
-const inputFullStyle = {
-  marginBottom: "20px",
-};
+interface FormInput {
+  type: any;
+  src: any;
+}
 
 const AddVideo = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm<FormInput>();
   const [isPublic, setIsPublic] = useState(false);
   const history = useHistory();
   const myPostsContext = useContext(MyPostsContext);
@@ -46,7 +42,7 @@ const AddVideo = () => {
             id="outlined-helperText"
             label="Type"
             variant="outlined"
-            style={inputTitleStyle}
+            style={{ width: "30%", marginBottom: "20px" }}
             inputRef={register({ required: true, minLength: 2 })}
           />
           <div className="labelbutton">
@@ -70,7 +66,7 @@ const AddVideo = () => {
           variant="outlined"
           type="url"
           required
-          style={inputFullStyle}
+          style={{ marginBottom: "20px" }}
           inputRef={register()}
           error={Boolean(errors.src)}
           helperText={errors.src ? "Enter valid youtube video" : ""}

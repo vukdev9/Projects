@@ -9,15 +9,6 @@ import { useHistory } from "react-router";
 import { postService } from "../../service/postService";
 import { MyPostsContext } from "../../context/MyPostsContext";
 
-const inputTitleStyle = {
-  width: "30%",
-  marginBottom: "20px",
-};
-
-const inputFullStyle = {
-  marginBottom: "20px",
-};
-
 interface FormInput {
   type: any;
   src: any;
@@ -53,7 +44,7 @@ const AddImagePost = () => {
             label="Type"
             value="image"
             variant="outlined"
-            style={inputTitleStyle}
+            style={{ marginBottom: "20px", width: "30%" }}
             inputRef={register()}
           />
           <div className="labelbutton">
@@ -76,7 +67,7 @@ const AddImagePost = () => {
           label="Image URL..."
           variant="outlined"
           type="url"
-          style={inputFullStyle}
+          style={{ marginBottom: "20px" }}
           inputRef={register({ required: true })}
           error={Boolean(errors.src)}
           helperText={errors.src ? "Enter valid image address" : ""}

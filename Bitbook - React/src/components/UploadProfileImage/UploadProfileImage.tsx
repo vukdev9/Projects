@@ -3,10 +3,6 @@ import "./UploadProfileImage.css";
 import { userService } from "../../service/userService";
 import { bufferDecode } from "../../shared/helperFunction";
 
-const displayInput = {
-  display: "block",
-};
-
 const UploadProfileImage = ({ user }: any) => {
   // const [profilePhoto, setProfilePhoto] = useState();
 
@@ -39,7 +35,7 @@ const UploadProfileImage = ({ user }: any) => {
             accept="image/*"
             id="contained-button-file"
             type="file"
-            style={displayInput}
+            style={{ display: "block" }}
             onChange={uploadPhoto}
           />
         </div>

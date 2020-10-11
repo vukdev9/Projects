@@ -9,17 +9,13 @@ import { useHistory } from "react-router";
 import { postService } from "../../service/postService";
 import { MyPostsContext } from "../../context/MyPostsContext";
 
-const inputTitleStyle = {
-  width: "30%",
-  marginBottom: "20px",
-};
-
-const inputDescriptionStyle = {
-  marginBottom: "20px",
-};
+interface FormInput {
+  type: any;
+  src: any;
+}
 
 const AddText = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm<FormInput>();
   const [isPublic, setIsPublic] = useState(false);
   const history = useHistory();
   const myPostsContext = useContext(MyPostsContext);
@@ -47,7 +43,7 @@ const AddText = () => {
             label="Type"
             value="text"
             variant="outlined"
-            style={inputTitleStyle}
+            style={{ marginBottom: "20px", width: "30%" }}
             inputRef={register()}
           />
           <div className="labelbutton">
@@ -72,9 +68,9 @@ const AddText = () => {
           variant="outlined"
           multiline
           rows={20}
-          style={inputDescriptionStyle}
+          style={{ marginBottom: "20px" }}
           inputRef={register({ required: true, minLength: 10 })}
-          error={Boolean(errors.description)}
+          error={Boolean(errors.src)}
           helperText={
             errors.src ? "Description must be at least 10 charaters long" : ""
           }

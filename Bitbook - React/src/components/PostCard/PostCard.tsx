@@ -118,10 +118,10 @@ const PostCard = ({ type, id, owner, created, src }: any) => {
           <Avatar
             aria-label="recipe"
             className={classes.avatar}
-            // src={decodeAvatar()}
+            src={decodeAvatar()}
           />
         }
-        // title={name()}
+        title={name()}
         subheader={`Published at: ${date}`}
       />
       {videoShow && (
@@ -141,7 +141,7 @@ const PostCard = ({ type, id, owner, created, src }: any) => {
           justifyContent: "space-between",
         }}
       >
-        {/* <h3 className={classes.email}>email: {user.email}</h3> */}
+        <h3 className={classes.email}>email: {user.email}</h3>
         <IconButton>
           <CommentIcon className={classes.iconButton} />
           <span className={classes.comment}>{comments.length}</span>

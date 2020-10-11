@@ -22,8 +22,6 @@ export const sendLoginData = (payload: any) => {
   });
 };
 
-const token: any = localStorage.getItem("token");
-
 export const getUserId = (token: any) => {
   const jwtToken: { _id: any } = jwt_Decode(token);
   return jwtToken._id;
