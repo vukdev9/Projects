@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import "./AddImage.css";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Switch from "@material-ui/core/Switch";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router";
 import { postService } from "../../service/postService";
@@ -26,6 +26,7 @@ const AddImagePost = () => {
 
   const uploadPhoto = (e: any) => {
     const file = e.target.files;
+    console.log(file)
     postService
         .createImagePost(file)
         .then(() => myPostsContext.fetchMyPosts())

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import AvatarBlock from "../components/AvatarBlock/AvatarBlock";
@@ -17,6 +17,7 @@ import { getUserId } from "../service/registerService";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
+import {MyPostsContext} from "../context/MyPostsContext";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -30,7 +31,7 @@ const SinglePostPage = (props: any) => {
   const [comments, setComments] = useState<null | any>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { register, handleSubmit, errors } = useForm();
-  const history = useHistory();
+  const {deletePost, updatePost} = useContext(MyPostsContext);
   const classes = useStyles();
   const id = props.match.params.id;
 
@@ -58,26 +59,14 @@ const SinglePostPage = (props: any) => {
   if (loading) {
     return <Loader />;
   }
-  //UPLOAD POST
+
   const onUpdatePost = (data: any) => {
-    postService
-      .updatePost(id, data)
-      .then(() => {
-        setTimeout(() => window.location.reload(), 200);
-      })
-      .catch((error) => console.log(error));
+    updatePost(id, data)
   };
 
-  //DELETE POST
   const onDeletePost = () => {
-    postService
-      .deletePost(id)
-      .then(() => {
-        setTimeout(() => history.push("/profile"), 1000);
-      })
-      .catch((error) => console.log(error));
-  };
-
+    deletePost(id)
+  }
   //FINDING IF THIS IS YOUR POSTS, SO YOU CAN CHANGE THEM OR DELETE
   const token = localStorage.getItem("token");
   const tokenId = getUserId(token);
