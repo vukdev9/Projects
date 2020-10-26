@@ -24,6 +24,12 @@ class PostService {
     return http.post(posts, data);
   };
 
+  createImagePost = (files: any) => {
+    const formData = new FormData();
+    formData.append("image", files[0], files[0].name)
+    return http.post(`${posts}?type=image`, formData)
+  }
+
   updatePost = (id: any, data: any) => {
     return http.patch(`${posts}/${id}`, data);
   };

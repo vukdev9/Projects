@@ -28,7 +28,7 @@ const PostContainer = () => {
     if (posts) {
       if (posts.length === 0) {
         return (
-          <h2 style={{ padding: "20px", color: "#2196f3" }}>
+          <h2 style={{ padding: "20px", color: "#2196f3", textAlign:"center" }}>
             There are no Posts yet...
           </h2>
         );

@@ -29,7 +29,7 @@ const Profile = () => {
   };
 
   const image = () => {
-    if (user && user.avatarUrl && user.avatarUrl) {
+    if (user && user.avatarUrl) {
       return bufferDecode("image", user.avatarUrl);
     } else {
       return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";

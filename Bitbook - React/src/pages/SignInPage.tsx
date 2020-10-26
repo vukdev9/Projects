@@ -87,8 +87,8 @@ const SignInPage: React.FC = () => {
       <Grid
         item
         xs={false}
-        sm={4}
-        md={7}
+        sm={false}
+        md={6}
         lg={6}
         xl={6}
         className={classes.image}
@@ -96,8 +96,8 @@ const SignInPage: React.FC = () => {
       <Grid
         item
         xs={12}
-        sm={8}
-        md={5}
+        sm={12}
+        md={6}
         lg={6}
         xl={6}
         component={Paper}

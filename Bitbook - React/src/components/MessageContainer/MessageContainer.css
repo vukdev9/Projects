@@ -2,3 +2,21 @@
   width: 50%;
   margin: 0 auto 90px;
 }
+
+@media only screen and (max-width: 950px) {
+  .messageContainer {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .messageContainer {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .messageContainer {
+    width: 90%;
+  }
+}

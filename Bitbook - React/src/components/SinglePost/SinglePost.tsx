@@ -37,7 +37,7 @@ const SinglePost = ({ type, src, createdAt }: singlePost) => {
 
   //DATE
   const time = new Date(createdAt);
-  const date = `${time.getDate()} ${time.getMonth() + 1} ${time.getFullYear()}`;
+  const date = `${time.getDate()}.${time.getMonth() + 1}.${time.getFullYear()}`;
 
   return (
     <div className="singlePost">

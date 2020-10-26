@@ -1,21 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "./UploadProfileImage.css";
 import { userService } from "../../service/userService";
 import { bufferDecode } from "../../shared/helperFunction";
 
 const UploadProfileImage = ({ user }: any) => {
-  // const [profilePhoto, setProfilePhoto] = useState();
+  const [profilePhoto, setProfilePhoto] = useState(user?.avatarUrl);
 
   const uploadPhoto = (e: any) => {
     const file = e.target.files[0];
     return userService
       .uploadUserImage(user.id, file)
-      .then((data) => console.log(data))
+      .then((data) => setProfilePhoto(data))
       .catch((e) => console.log(e));
   };
 
-  const url = () => {
-    if (user && user.avatarUrl) {
+  const imageUrl = () => {
+    if (user && profilePhoto) {
       return bufferDecode("image", user.avatarUrl);
     } else {
       return "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png";
@@ -24,11 +24,10 @@ const UploadProfileImage = ({ user }: any) => {
 
   return (
     <>
-      <img className="image" src={url()} alt="..." />
-
+      <img className="image" src={imageUrl()} alt="..." />
       <form className="form">
         <div className="labelWrapper">
-          <label htmlFor="contained-button-file" style={{}}>
+          <label htmlFor="contained-button-file">
             Upload Image
           </label>
           <input

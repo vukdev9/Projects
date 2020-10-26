@@ -24,19 +24,30 @@ const AddImagePost = () => {
     setCheckedComment((prev) => !prev);
   };
 
-  const onSubmit: SubmitHandler<FormInput> = (data) => {
+  const uploadPhoto = (e: any) => {
+    const file = e.target.files;
     postService
-      .createPost(data)
-      .then(() => myPostsContext.fetchMyPosts())
-      .then(() => setTimeout(() => history.push("profile"), 500))
-      .catch((error) => console.log(error));
-  };
+        .createImagePost(file)
+        .then(() => myPostsContext.fetchMyPosts())
+        .then(() => setTimeout(() => history.push("profile"), 500))
+        .catch((error) => console.log(error));
+  }
+
+  // const onSubmit: SubmitHandler<FormInput> = (data:any) => {
+  //   let forma = {...data};
+  //   forma.src = forma.src[0];
+  //   postService
+  //     .createImagePost(forma)
+  //     .then(() => myPostsContext.fetchMyPosts())
+  //     .then(() => setTimeout(() => history.push("profile"), 500))
+  //     .catch((error) => console.log(error));
+  // };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form >
       <div className="addtext">
         <h1>ADD IMAGE</h1>
-        <div className="headingDiv">
+        {/* <div className="headingDiv">
           <TextField
             name="type"
             type="text"
@@ -61,8 +72,22 @@ const AddImagePost = () => {
               label="Is it post Public?"
             />
           </div>
+        </div> */}
+        <div className="inputWrapper">
+          <label htmlFor="contained-button-file">
+            Upload Image
+          </label>
+          <input
+            name="src"
+            accept="image/*"
+            id="contained-button-file"
+            type="file"
+            style={{ width:"100%" }}
+            onChange={uploadPhoto}
+            // ref={register()}
+          />
         </div>
-        <TextField
+        {/* <TextField
           name="src"
           label="Image URL..."
           variant="outlined"
@@ -71,7 +96,7 @@ const AddImagePost = () => {
           inputRef={register({ required: true })}
           error={Boolean(errors.src)}
           helperText={errors.src ? "Enter valid image address" : ""}
-        />
+        /> */}
         <div className="addPostWrapper">
           <Button variant="contained" color="primary" type="submit">
             ADD POST

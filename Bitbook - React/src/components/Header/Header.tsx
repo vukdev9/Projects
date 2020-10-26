@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     color: "inherit",
   },
   title: {
-    display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
       marginLeft: "10%",
@@ -127,33 +126,31 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
     setAnchorFeed(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) : void => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () : void => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = () : void => {
     setAnchorEl(null);
     setAnchorFeed(null);
     handleMobileMenuClose();
   };
 
-  const handleDialogClose = () => {
+  const handleDialogClose = () : void => {
     setDialog(false);
   };
 
-  const handleMobileMenuOpen = (event: {
-    currentTarget: React.SetStateAction<null>;
-  }) => {
-    setMobileMoreAnchorEl(event.currentTarget);
+  const openPasswordDialog = () : void => {
+    setDialog(true);
   };
 
   const LogOutUser = () => {
     logOut();
     history.push("/");
-  };
-
-  const openPasswordDialog = () => {
-    setDialog(true);
   };
 
   const menuId = "primary-search-account-menu";
@@ -225,6 +222,7 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <Link to="/message" className={classes.link}>
       <MenuItem>
         <IconButton color="inherit">
           <Badge color="secondary">
@@ -233,7 +231,9 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
         </IconButton>
         <p>Message</p>
       </MenuItem>
-      <MenuItem onClick={handleFeedMenuOpen}>
+      </Link>
+      {showFeedButton && (
+        <MenuItem onClick={handleFeedMenuOpen}>
         <IconButton color="inherit">
           <Badge color="secondary">
             <ListIcon />
@@ -241,6 +241,8 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
         </IconButton>
         <p>Feed</p>
       </MenuItem>
+      )}
+      <Link to="/users" className={classes.link}>
       <MenuItem>
         <IconButton color="inherit">
           <Badge color="secondary">
@@ -249,6 +251,7 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
         </IconButton>
         <p>Users</p>
       </MenuItem>
+      </Link>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -326,7 +329,7 @@ const Header = ({ applyFilter, showFeedButton, notification }: any) => {
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
-              onClick={() => handleMobileMenuOpen}
+              onClick={handleMobileMenuOpen}
               color="inherit"
             >
               <MoreIcon />

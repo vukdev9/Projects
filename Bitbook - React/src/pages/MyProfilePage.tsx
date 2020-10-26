@@ -10,10 +10,10 @@ const MyProfile = () => {
     <>
       <Header showFeedButton={false} />
       <Grid container>
-        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+        <Grid item xs={12} sm={5} md={4} lg={3} xl={3}>
           <Profile />
         </Grid>
-        <Grid item xs={12} sm={6} md={8} lg={9} xl={9}>
+        <Grid item xs={12} sm={7} md={8} lg={9} xl={9}>
           <PostContainer />
         </Grid>
       </Grid>

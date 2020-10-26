@@ -87,7 +87,7 @@ const PostCard = ({ type, id, owner, created, src }: any) => {
         });
       }
     }
-  }, []);
+  }, [id]);
 
   //get the date
   const time = new Date(created);

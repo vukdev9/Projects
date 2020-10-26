@@ -17,11 +17,11 @@ const EditProfilePage = () => {
         justify="center"
         style={{ marginTop: "100px" }}
       >
-        <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
+        <Grid item xs={12} sm={4} md={3} lg={3} xl={3}>
           <UploadProfileImage user={user.user} />
         </Grid>
         <Grid item xs={false} sm={1} md={1} lg={1} xl={1}></Grid>
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={5}>
+        <Grid item xs={12} sm={6} md={6} lg={6} xl={5}>
           <UploadUserInput user={user.user} />
         </Grid>
       </Grid>
